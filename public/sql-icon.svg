@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Database cylinder -->
+  <path d="M256 64C384 64 448 128 448 192C448 256 384 320 256 320C128 320 64 256 64 192C64 128 128 64 256 64Z" fill="#2196F3"/>
+  <path d="M448 192V320C448 384 384 448 256 448C128 448 64 384 64 320V192" fill="#1976D2"/>
+  <path d="M256 64C384 64 448 128 448 192" stroke="#1565C0" stroke-width="8"/>
+  
+  <!-- SQL text -->
+  <text x="256" y="240" font-family="Arial" font-size="120" font-weight="bold" fill="white" text-anchor="middle">SQL</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="256" cy="192" r="16" fill="#1565C0"/>
+  <circle cx="192" cy="192" r="16" fill="#1565C0"/>
+  <circle cx="320" cy="192" r="16" fill="#1565C0"/>
+</svg> 

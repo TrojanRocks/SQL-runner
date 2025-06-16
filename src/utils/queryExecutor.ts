@@ -30,11 +30,15 @@ export const executeQuery = (query: string): QueryResult => {
           return row[field] < Number(value);
         } else if (whereClause.includes('=')) {
           const [field, value] = whereClause.split('=').map(s => s.trim().replace(/['"]/g, ''));
-          return row[field] === value;
+          return String(row[field]).toLowerCase() === String(value).toLowerCase();
         } else if (whereClause.includes('LIKE')) {
-          const [field, pattern] = whereClause.split('LIKE').map(s => s.trim().replace(/['"]/g, ''));
-          const regexPattern = pattern.replace('%', '.*');
-          return new RegExp(regexPattern, 'i').test(row[field]);
+          const [field, pattern] = whereClause.split('LIKE').map(s => s.trim());
+          // Remove quotes and handle wildcards
+          const cleanPattern = pattern.replace(/['"]/g, '');
+          const regexPattern = cleanPattern
+            .replace(/%/g, '.*')
+            .replace(/_/g, '.');
+          return new RegExp(`^${regexPattern}$`, 'i').test(String(row[field]));
         }
         return true;
       });
