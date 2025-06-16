@@ -122,12 +122,57 @@ SELECT * FROM categories ORDER BY categoryName DESC
 ### Project Structure
 ```
 src/
-  ├── components/     # React components
-  ├── data/          # Mock data
-  ├── types/         # TypeScript interfaces
-  ├── utils/         # Utility functions
-  └── App.tsx        # Main application component
+  ├── components/           # React components
+  │   ├── editor/          # SQL Editor components
+  │   │   ├── core/        # Main editor component
+  │   │   ├── history/     # Query history components
+  │   │   └── dialogs/     # Editor dialogs
+  │   └── results/         # Results display components
+  │       ├── core/        # Main results table
+  │       ├── actions/     # Export and copy actions
+  │       └── pagination/  # Table pagination
+  ├── data/                # Mock data
+  ├── types/               # TypeScript interfaces
+  ├── utils/               # Utility functions
+  └── App.tsx              # Main application component
 ```
+
+### Component Organization
+
+The application's components are organized into logical subcategories for better maintainability and code organization:
+
+#### Editor Components
+- **Core Editor** (`editor/core/SqlEditor.tsx`)
+  - Main SQL query input with syntax highlighting
+  - Query execution controls
+  - Integration with Monaco Editor
+- **Query History** (`editor/history/QueryHistory.tsx`)
+  - Saved queries drawer
+  - Query loading functionality
+  - Query management interface
+- **Dialogs** (`editor/dialogs/SaveQueryDialog.tsx`)
+  - Save query dialog
+  - Query naming interface
+
+#### Results Components
+- **Core Table** (`results/core/ResultsTable.tsx`)
+  - Main results display
+  - Responsive table layout
+  - Automatic pagination reset on query changes
+- **Actions** (`results/actions/ResultsActions.tsx`)
+  - Export to CSV functionality
+  - Copy to clipboard functionality
+- **Pagination** (`results/pagination/ResultsPagination.tsx`)
+  - Page navigation controls
+  - Rows per page selection
+  - Total results count
+
+### Recent Updates
+- Improved component organization with logical subcategories
+- Added automatic pagination reset when loading saved queries
+- Enhanced type safety with TypeScript interfaces
+- Improved accessibility with ARIA labels and roles
+- Better separation of concerns between components
 
 ### Technologies Used
 - React
