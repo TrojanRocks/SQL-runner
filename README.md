@@ -10,15 +10,26 @@ A web-based SQL query runner application that allows users to write and execute 
 - Basic SQL operations (SELECT, WHERE, ORDER BY)
 - Pattern matching with LIKE operator
 - Responsive table view for results
+- Pagination support for large result sets
 
 ### Value-Added Features
-- Save and load frequently used queries
-- Query history with timestamps
-- Export results to CSV
-- Copy results to clipboard
-- Dark theme for better readability
-- Keyboard accessibility
-- Screen reader support
+- Query Management
+  - Save frequently used queries
+  - Load saved queries
+  - Query history with timestamps
+  - Query persistence across sessions
+- Results Management
+  - Export results to CSV
+  - Copy results to clipboard
+  - Pagination controls (5, 10, 25, 50 rows per page)
+  - Total row count display
+  - Responsive table layout
+- User Experience
+  - Dark theme for better readability
+  - Keyboard accessibility
+  - Screen reader support
+  - Custom SQL-themed icon
+  - Modern Material-UI design
 
 ## Getting Started
 
@@ -30,7 +41,7 @@ A web-based SQL query runner application that allows users to write and execute 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/sql-runner.git
+git clone https://github.com/TrojanRocks/SQL-runner.git
 cd sql-runner
 ```
 
@@ -72,13 +83,17 @@ SELECT * FROM categories ORDER BY categoryName DESC
 ```
 
 ### Managing Queries
-- Click the save icon to save the current query
-- Click the history icon to view and load saved queries
-- Use the play button to execute a loaded query
+- Click the save icon (💾) to save the current query
+- Click the history icon (📜) to view and load saved queries
+- Use the play button (▶️) to execute a loaded query
+- Queries are automatically saved in your browser's local storage
 
 ### Working with Results
-- Use the copy icon to copy results to clipboard
-- Use the download icon to export results as CSV
+- Use the copy icon (📋) to copy results to clipboard
+- Use the download icon (⬇️) to export results as CSV
+- Navigate through pages using the pagination controls
+- Adjust the number of rows displayed per page (5, 10, 25, or 50)
+- View the total number of rows in the results
 - Results are displayed in a sortable, responsive table
 
 ## Available Tables
