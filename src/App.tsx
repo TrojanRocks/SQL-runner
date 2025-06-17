@@ -14,6 +14,95 @@ import { executeQuery } from './utils/queryExecutor';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    primary: {
+      main: 'rgba(32, 38, 210, 0.5)',
+      light: 'rgba(32, 38, 210, 0.7)',
+      dark: 'rgba(32, 38, 210, 0.3)',
+    },
+    secondary: {
+      main: '#ce93d8',
+      light: '#f3e5f5',
+      dark: '#ab47bc',
+    },
+    background: {
+      default: '#0a1929',
+      paper: 'rgba(32, 38, 210, 0.1)',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#b2bac2',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontWeight: 600,
+    },
+    h2: {
+      fontWeight: 600,
+    },
+    h3: {
+      fontWeight: 600,
+    },
+    h6: {
+      fontWeight: 500,
+    },
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+          backgroundColor: 'rgba(32, 38, 210, 0.1)',
+          '&:hover': {
+            boxShadow: '0px 4px 20px rgba(32, 38, 210, 0.2)',
+          },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: 8,
+          padding: '8px 16px',
+        },
+        contained: {
+          '&:hover': {
+            boxShadow: '0px 4px 12px rgba(32, 38, 210, 0.3)',
+          },
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: '1px solid rgba(32, 38, 210, 0.1)',
+        },
+        head: {
+          fontWeight: 600,
+          backgroundColor: 'rgba(32, 38, 210, 0.08)',
+        },
+      },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(32, 38, 210, 0.04)',
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(32, 38, 210, 0.08)',
+          },
+        },
+      },
+    },
   },
 });
 
