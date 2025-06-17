@@ -109,7 +109,12 @@ const darkTheme = createTheme({
 function App() {
   const [query, setQuery] = useState('SELECT * FROM categories');
   const [results, setResults] = useState<TableData[]>(mockData['categories']);
-  const [columns, setColumns] = useState<string[]>(['categoryID', 'categoryName', 'description', 'picture']);
+  const [columns, setColumns] = useState<string[]>([
+    'categoryID',
+    'categoryName',
+    'description',
+    'picture',
+  ]);
   const [savedQueries, setSavedQueries] = useState<SavedQuery[]>([]);
 
   const handleQueryChange = (value: string) => {
@@ -139,14 +144,14 @@ function App() {
   const handleExportResults = useCallback(() => {
     const csvContent = [
       columns.join(','),
-      ...results.map(row => 
-        columns.map(col => {
-          const value = row[col];
-          return typeof value === 'string' && value.includes(',') 
-            ? `"${value}"` 
-            : value;
-        }).join(',')
-      )
+      ...results.map(row =>
+        columns
+          .map(col => {
+            const value = row[col];
+            return typeof value === 'string' && value.includes(',') ? `"${value}"` : value;
+          })
+          .join(',')
+      ),
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -159,9 +164,7 @@ function App() {
   const handleCopyResults = useCallback(() => {
     const text = [
       columns.join('\t'),
-      ...results.map(row => 
-        columns.map(col => row[col]).join('\t')
-      )
+      ...results.map(row => columns.map(col => row[col]).join('\t')),
     ].join('\n');
 
     navigator.clipboard.writeText(text);
@@ -171,22 +174,11 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Container maxWidth="xl">
-        <Box 
-          component="main"
-          sx={{ my: 4 }}
-          role="main"
-          aria-label="SQL Query Runner Application"
-        >
-          <Typography 
-            variant="h3" 
-            component="h1" 
-            gutterBottom 
-            align="center"
-            id="app-title"
-          >
+        <Box component="main" sx={{ my: 4 }} role="main" aria-label="SQL Query Runner Application">
+          <Typography variant="h3" component="h1" gutterBottom align="center" id="app-title">
             Atlan SQL Query Runner
           </Typography>
-          
+
           <SqlEditor
             query={query}
             onQueryChange={handleQueryChange}
@@ -208,4 +200,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

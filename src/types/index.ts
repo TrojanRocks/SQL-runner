@@ -1,5 +1,5 @@
 export interface TableData {
-  [key: string]: any;
+  [key: string]: string | number | boolean;
 }
 
 export interface QueryResult {
@@ -23,6 +23,30 @@ export interface ResultsTableProps {
   onCopy: () => void;
 }
 
+export interface ResultsPaginationProps {
+  columns: string[];
+  count: number;
+  rowsPerPage: number;
+  page: number;
+  onPageChange: (event: unknown, newPage: number) => void;
+  onRowsPerPageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface SaveQueryDialogProps {
+  open: boolean;
+  onClose: () => void;
+  queryName: string;
+  onQueryNameChange: (name: string) => void;
+  onSave: () => void;
+}
+
+export interface QueryHistoryProps {
+  open: boolean;
+  onClose: () => void;
+  savedQueries: SavedQuery[];
+  onLoadQuery: (query: string) => void;
+}
+
 export interface SavedQuery {
   id: string;
   name: string;
@@ -36,4 +60,4 @@ export interface QueryHistory {
   timestamp: number;
   executionTime: number;
   rowCount: number;
-} 
+}

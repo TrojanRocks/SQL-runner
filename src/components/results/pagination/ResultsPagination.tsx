@@ -16,7 +16,7 @@ const ResultsPagination: React.FC<ResultsPaginationProps> = ({
   rowsPerPage,
   page,
   onPageChange,
-  onRowsPerPageChange
+  onRowsPerPageChange,
 }) => {
   return (
     <TableFooter>
@@ -31,7 +31,7 @@ const ResultsPagination: React.FC<ResultsPaginationProps> = ({
           onRowsPerPageChange={onRowsPerPageChange}
           SelectProps={{
             inputProps: { 'aria-label': 'rows per page' },
-            native: true
+            native: true,
           }}
         />
       </TableRow>
@@ -39,4 +39,4 @@ const ResultsPagination: React.FC<ResultsPaginationProps> = ({
   );
 };
 
-export default ResultsPagination; 
+export default ResultsPagination;

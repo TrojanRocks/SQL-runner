@@ -19,7 +19,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "allowImportingTsExtensions": true
+    "baseUrl": "src",
+    "paths": {
+      "types": ["types/index.ts"]
+    }
   },
   "include": [
     "src"

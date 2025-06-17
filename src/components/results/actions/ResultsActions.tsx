@@ -12,18 +12,12 @@ const ResultsActions: React.FC<ResultsActionsProps> = ({ onExport, onCopy }) => 
   return (
     <Box>
       <Tooltip title="Copy Results" arrow>
-        <IconButton 
-          onClick={onCopy}
-          aria-label="Copy results to clipboard"
-        >
+        <IconButton onClick={onCopy} aria-label="Copy results to clipboard">
           <ContentCopyIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Export Results" arrow>
-        <IconButton 
-          onClick={onExport}
-          aria-label="Export results to CSV"
-        >
+        <IconButton onClick={onExport} aria-label="Export results to CSV">
           <FileDownloadIcon />
         </IconButton>
       </Tooltip>
@@ -31,4 +25,4 @@ const ResultsActions: React.FC<ResultsActionsProps> = ({ onExport, onCopy }) => 
   );
 };
 
-export default ResultsActions; 
+export default ResultsActions;

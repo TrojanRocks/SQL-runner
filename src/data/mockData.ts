@@ -1,24 +1,99 @@
 import { TableData } from '../types';
 
 export const mockData: { [key: string]: TableData[] } = {
-  'categories': [
-    { categoryID: 1, categoryName: 'Beverages', description: 'Soft drinks, coffees, teas, beers, and ales', picture: '0x151C2F...' },
-    { categoryID: 2, categoryName: 'Condiments', description: 'Sweet and savory sauces, relishes, spreads, and seasonings', picture: '0x151C2F...' },
-    { categoryID: 3, categoryName: 'Confections', description: 'Desserts, candies, and sweet breads', picture: '0x151C2F...' },
-    { categoryID: 4, categoryName: 'Dairy Products', description: 'Cheeses and dairy items', picture: '0x151C2F...' },
-    { categoryID: 5, categoryName: 'Grains/Cereals', description: 'Breads, crackers, pasta, and cereal', picture: '0x151C2F...' },
-    { categoryID: 6, categoryName: 'Meat/Poultry', description: 'Prepared meats and poultry products', picture: '0x151C2F...' },
-    { categoryID: 7, categoryName: 'Produce', description: 'Dried fruit and bean curd', picture: '0x151C2F...' },
-    { categoryID: 8, categoryName: 'Seafood', description: 'Seaweed and fish products', picture: '0x151C2F...' },
-    { categoryID: 9, categoryName: 'Snacks', description: 'Chips, nuts, and other snack items', picture: '0x151C2F...' },
-    { categoryID: 10, categoryName: 'Frozen Foods', description: 'Frozen meals and desserts', picture: '0x151C2F...' },
-    { categoryID: 11, categoryName: 'Bakery', description: 'Fresh breads and pastries', picture: '0x151C2F...' },
-    { categoryID: 12, categoryName: 'Canned Goods', description: 'Canned vegetables and fruits', picture: '0x151C2F...' },
-    { categoryID: 13, categoryName: 'Spices', description: 'Herbs and spices for cooking', picture: '0x151C2F...' },
-    { categoryID: 14, categoryName: 'Oils', description: 'Cooking oils and vinegars', picture: '0x151C2F...' },
-    { categoryID: 15, categoryName: 'Sauces', description: 'Pasta sauces and gravies', picture: '0x151C2F...' }
+  categories: [
+    {
+      categoryID: 1,
+      categoryName: 'Beverages',
+      description: 'Soft drinks, coffees, teas, beers, and ales',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 2,
+      categoryName: 'Condiments',
+      description: 'Sweet and savory sauces, relishes, spreads, and seasonings',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 3,
+      categoryName: 'Confections',
+      description: 'Desserts, candies, and sweet breads',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 4,
+      categoryName: 'Dairy Products',
+      description: 'Cheeses and dairy items',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 5,
+      categoryName: 'Grains/Cereals',
+      description: 'Breads, crackers, pasta, and cereal',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 6,
+      categoryName: 'Meat/Poultry',
+      description: 'Prepared meats and poultry products',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 7,
+      categoryName: 'Produce',
+      description: 'Dried fruit and bean curd',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 8,
+      categoryName: 'Seafood',
+      description: 'Seaweed and fish products',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 9,
+      categoryName: 'Snacks',
+      description: 'Chips, nuts, and other snack items',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 10,
+      categoryName: 'Frozen Foods',
+      description: 'Frozen meals and desserts',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 11,
+      categoryName: 'Bakery',
+      description: 'Fresh breads and pastries',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 12,
+      categoryName: 'Canned Goods',
+      description: 'Canned vegetables and fruits',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 13,
+      categoryName: 'Spices',
+      description: 'Herbs and spices for cooking',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 14,
+      categoryName: 'Oils',
+      description: 'Cooking oils and vinegars',
+      picture: '0x151C2F...',
+    },
+    {
+      categoryID: 15,
+      categoryName: 'Sauces',
+      description: 'Pasta sauces and gravies',
+      picture: '0x151C2F...',
+    },
   ],
-  'users': [
+  users: [
     { id: 1, name: 'John Doe', email: 'john@example.com', role: 'admin' },
     { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'user' },
     { id: 3, name: 'Bob Johnson', email: 'bob@example.com', role: 'user' },
@@ -33,9 +108,9 @@ export const mockData: { [key: string]: TableData[] } = {
     { id: 12, name: 'Julia Moore', email: 'julia@example.com', role: 'user' },
     { id: 13, name: 'Kevin Young', email: 'kevin@example.com', role: 'manager' },
     { id: 14, name: 'Laura Hall', email: 'laura@example.com', role: 'user' },
-    { id: 15, name: 'Mike Allen', email: 'mike@example.com', role: 'user' }
+    { id: 15, name: 'Mike Allen', email: 'mike@example.com', role: 'user' },
   ],
-  'orders': [
+  orders: [
     { id: 1, user_id: 1, product: 'Laptop', amount: 1200, date: '2024-03-15' },
     { id: 2, user_id: 2, product: 'Mouse', amount: 50, date: '2024-03-16' },
     { id: 3, user_id: 1, product: 'Keyboard', amount: 100, date: '2024-03-17' },
@@ -50,6 +125,6 @@ export const mockData: { [key: string]: TableData[] } = {
     { id: 12, user_id: 9, product: 'Gaming Console', amount: 500, date: '2024-03-26' },
     { id: 13, user_id: 10, product: 'Wireless Earbuds', amount: 180, date: '2024-03-27' },
     { id: 14, user_id: 11, product: 'Graphics Card', amount: 600, date: '2024-03-28' },
-    { id: 15, user_id: 12, product: 'Power Bank', amount: 70, date: '2024-03-29' }
-  ]
-}; 
+    { id: 15, user_id: 12, product: 'Power Bank', amount: 70, date: '2024-03-29' },
+  ],
+};

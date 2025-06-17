@@ -1,14 +1,14 @@
 import React from 'react';
-import { 
-  Drawer, 
-  Box, 
-  Typography, 
-  List, 
-  ListItem, 
-  ListItemText, 
+import {
+  Drawer,
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
   ListItemSecondaryAction,
   IconButton,
-  Divider
+  Divider,
 } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -25,20 +25,16 @@ const QueryHistory: React.FC<QueryHistoryProps> = ({
   open,
   onClose,
   savedQueries,
-  onLoadQuery
+  onLoadQuery,
 }) => {
   return (
-    <Drawer
-      anchor="right"
-      open={open}
-      onClose={onClose}
-    >
+    <Drawer anchor="right" open={open} onClose={onClose}>
       <Box sx={{ width: 350, p: 2 }}>
         <Typography variant="h6" gutterBottom>
           Saved Queries
         </Typography>
         <List>
-          {savedQueries.map((savedQuery) => (
+          {savedQueries.map(savedQuery => (
             <div key={savedQuery.id}>
               <ListItem>
                 <ListItemText
@@ -55,7 +51,9 @@ const QueryHistory: React.FC<QueryHistoryProps> = ({
                   </IconButton>
                   <IconButton
                     edge="end"
-                    onClick={() => {/* TODO: Implement delete */}}
+                    onClick={() => {
+                      /* TODO: Implement delete */
+                    }}
                     aria-label={`Delete query: ${savedQuery.name}`}
                   >
                     <DeleteIcon />
@@ -71,4 +69,4 @@ const QueryHistory: React.FC<QueryHistoryProps> = ({
   );
 };
 
-export default QueryHistory; 
+export default QueryHistory;

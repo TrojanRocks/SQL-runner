@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  Paper, 
-  Box, 
-  Button, 
-  IconButton, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemText, 
+import {
+  Paper,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
   ListItemSecondaryAction,
   Typography,
   TextField,
@@ -16,22 +16,22 @@ import {
   DialogContent,
   DialogActions,
   Tooltip,
-  Divider
+  Divider,
 } from '@mui/material';
 import Editor from '@monaco-editor/react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import HistoryIcon from '@mui/icons-material/History';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { SqlEditorProps, SavedQuery } from '../types';
+import { SqlEditorProps, SavedQuery } from 'types';
 
-const SqlEditor: React.FC<SqlEditorProps> = ({ 
-  query, 
-  onQueryChange, 
+const SqlEditor: React.FC<SqlEditorProps> = ({
+  query,
+  onQueryChange,
   onExecute,
   savedQueries,
   onSaveQuery,
-  onLoadQuery
+  onLoadQuery,
 }) => {
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isSaveDialogOpen, setIsSaveDialogOpen] = useState(false);
@@ -46,12 +46,7 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
   };
 
   return (
-    <Paper 
-      elevation={3} 
-      sx={{ p: 2, mb: 2 }}
-      role="region"
-      aria-label="SQL Query Editor"
-    >
+    <Paper elevation={3} sx={{ p: 2, mb: 2 }} role="region" aria-label="SQL Query Editor">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
         <Typography variant="h6" component="h2">
           SQL Editor
@@ -59,20 +54,14 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
         <Box>
           <Tooltip title="Query History">
             <span>
-              <IconButton 
-                onClick={() => setIsHistoryOpen(true)}
-                aria-label="View Query History"
-              >
+              <IconButton onClick={() => setIsHistoryOpen(true)} aria-label="View Query History">
                 <HistoryIcon />
               </IconButton>
             </span>
           </Tooltip>
           <Tooltip title="Save Query">
             <span>
-              <IconButton 
-                onClick={() => setIsSaveDialogOpen(true)}
-                aria-label="Save Current Query"
-              >
+              <IconButton onClick={() => setIsSaveDialogOpen(true)} aria-label="Save Current Query">
                 <SaveIcon />
               </IconButton>
             </span>
@@ -84,7 +73,7 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
         height="200px"
         defaultLanguage="sql"
         value={query}
-        onChange={(value) => onQueryChange(value || '')}
+        onChange={value => onQueryChange(value || '')}
         theme="vs-dark"
         options={{
           minimap: { enabled: false },
@@ -117,27 +106,25 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
             label="Query Name"
             fullWidth
             value={queryName}
-            onChange={(e) => setQueryName(e.target.value)}
+            onChange={e => setQueryName(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setIsSaveDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleSaveQuery} variant="contained">Save</Button>
+          <Button onClick={handleSaveQuery} variant="contained">
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
 
       {/* Query History Drawer */}
-      <Drawer
-        anchor="right"
-        open={isHistoryOpen}
-        onClose={() => setIsHistoryOpen(false)}
-      >
+      <Drawer anchor="right" open={isHistoryOpen} onClose={() => setIsHistoryOpen(false)}>
         <Box sx={{ width: 350, p: 2 }}>
           <Typography variant="h6" gutterBottom>
             Saved Queries
           </Typography>
           <List>
-            {savedQueries.map((savedQuery) => (
+            {savedQueries.map((savedQuery: SavedQuery) => (
               <div key={savedQuery.id}>
                 <ListItem>
                   <ListItemText
@@ -154,7 +141,9 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
                     </IconButton>
                     <IconButton
                       edge="end"
-                      onClick={() => {/* TODO: Implement delete */}}
+                      onClick={() => {
+                        /* TODO: Implement delete */
+                      }}
                       aria-label={`Delete query: ${savedQuery.name}`}
                     >
                       <DeleteIcon />
@@ -171,4 +160,4 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
   );
 };
 
-export default SqlEditor; 
+export default SqlEditor;

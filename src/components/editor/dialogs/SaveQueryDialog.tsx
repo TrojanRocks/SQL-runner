@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogActions,
   Button,
-  TextField
+  TextField,
 } from '@mui/material';
 
 interface SaveQueryDialogProps {
@@ -21,7 +21,7 @@ const SaveQueryDialog: React.FC<SaveQueryDialogProps> = ({
   onClose,
   queryName,
   onQueryNameChange,
-  onSave
+  onSave,
 }) => {
   return (
     <Dialog open={open} onClose={onClose}>
@@ -33,15 +33,17 @@ const SaveQueryDialog: React.FC<SaveQueryDialogProps> = ({
           label="Query Name"
           fullWidth
           value={queryName}
-          onChange={(e) => onQueryNameChange(e.target.value)}
+          onChange={e => onQueryNameChange(e.target.value)}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={onSave} variant="contained">Save</Button>
+        <Button onClick={onSave} variant="contained">
+          Save
+        </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default SaveQueryDialog; 
+export default SaveQueryDialog;

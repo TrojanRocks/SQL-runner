@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { 
-  Paper, 
-  Typography, 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
+import {
+  Paper,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
   TableRow,
-  Box
+  Box,
 } from '@mui/material';
 import { ResultsTableProps } from '../../../types';
 import ResultsActions from '../actions/ResultsActions';
@@ -38,38 +38,26 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ columns, data, onExport, on
   const paginatedData = data.slice(startIndex, endIndex);
 
   return (
-    <Paper 
-      elevation={3} 
-      sx={{ p: 2 }}
-      role="region"
-      aria-label="Query Results"
-    >
+    <Paper elevation={3} sx={{ p: 2 }} role="region" aria-label="Query Results">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography 
-          variant="h6" 
-          gutterBottom
-          component="h2"
-          id="results-heading"
-        >
+        <Typography variant="h6" gutterBottom component="h2" id="results-heading">
           Results ({data.length} rows)
         </Typography>
         <ResultsActions onExport={onExport} onCopy={onCopy} />
       </Box>
       <TableContainer>
-        <Table 
-          aria-labelledby="results-heading"
-        >
+        <Table aria-labelledby="results-heading">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
-                <TableCell 
+              {columns.map(column => (
+                <TableCell
                   key={column}
                   component="th"
                   scope="col"
-                  sx={{ 
+                  sx={{
                     fontWeight: 'bold',
                     whiteSpace: 'nowrap',
-                    minWidth: column === 'description' ? '300px' : 'auto'
+                    minWidth: column === 'description' ? '300px' : 'auto',
                   }}
                 >
                   {column}
@@ -79,16 +67,13 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ columns, data, onExport, on
           </TableHead>
           <TableBody>
             {paginatedData.map((row, index) => (
-              <TableRow 
-                key={index}
-                aria-label={`Row ${startIndex + index + 1}`}
-              >
-                {columns.map((column) => (
-                  <TableCell 
+              <TableRow key={index} aria-label={`Row ${startIndex + index + 1}`}>
+                {columns.map(column => (
+                  <TableCell
                     key={column}
-                    sx={{ 
+                    sx={{
                       whiteSpace: column === 'description' ? 'normal' : 'nowrap',
-                      minWidth: column === 'description' ? '300px' : 'auto'
+                      minWidth: column === 'description' ? '300px' : 'auto',
                     }}
                   >
                     {column === 'picture' ? 'Binary Data' : row[column]}
@@ -98,10 +83,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ columns, data, onExport, on
             ))}
             {data.length === 0 && (
               <TableRow>
-                <TableCell 
-                  colSpan={columns.length}
-                  sx={{ textAlign: 'center' }}
-                >
+                <TableCell colSpan={columns.length} sx={{ textAlign: 'center' }}>
                   No results found
                 </TableCell>
               </TableRow>
@@ -121,4 +103,4 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ columns, data, onExport, on
   );
 };
 
-export default ResultsTable; 
+export default ResultsTable;

@@ -1,5 +1,9 @@
-import { TableData, QueryResult } from '../types';
 import { mockData } from '../data/mockData';
+
+interface QueryResult {
+  columns: string[];
+  data: Record<string, string | number | boolean>[];
+}
 
 export const executeQuery = (query: string): QueryResult => {
   try {
@@ -9,7 +13,7 @@ export const executeQuery = (query: string): QueryResult => {
       throw new Error('Invalid query: No table specified');
     }
     const tableName = tableMatch[1].toLowerCase();
-    
+
     // Get the base data
     let data = [...mockData[tableName]];
     if (!data) {
@@ -35,9 +39,7 @@ export const executeQuery = (query: string): QueryResult => {
           const [field, pattern] = whereClause.split('LIKE').map(s => s.trim());
           // Remove quotes and handle wildcards
           const cleanPattern = pattern.replace(/['"]/g, '');
-          const regexPattern = cleanPattern
-            .replace(/%/g, '.*')
-            .replace(/_/g, '.');
+          const regexPattern = cleanPattern.replace(/%/g, '.*').replace(/_/g, '.');
           return new RegExp(`^${regexPattern}$`, 'i').test(String(row[field]));
         }
         return true;
@@ -58,13 +60,13 @@ export const executeQuery = (query: string): QueryResult => {
 
     return {
       data,
-      columns: data.length > 0 ? Object.keys(data[0]) : []
+      columns: data.length > 0 ? Object.keys(data[0]) : [],
     };
   } catch (error) {
     console.error('Query execution error:', error);
     return {
       data: [],
-      columns: []
+      columns: [],
     };
   }
-}; 
+};
