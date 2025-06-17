@@ -184,7 +184,11 @@ The application's components are organized into logical subcategories for better
 ### Implementation Details & Performance
 
 #### Walkthrough Video
-[Watch the implementation walkthrough]((https://github.com/user-attachments/assets/103ce6b6-39f1-4372-bbe7-69a0525eff46))
+Watch the implementation walkthrough
+
+https://github.com/user-attachments/assets/a2088be2-4604-4bbb-b43e-1ac2d375b391
+
+
 - Demonstrates core features and query execution
 
 - Shows query management and results handling
