@@ -184,8 +184,13 @@ The application's components are organized into logical subcategories for better
 ### Implementation Details & Performance
 
 #### Walkthrough Video
-[Watch the implementation walkthrough](https://drive.google.com/file/d/your-video-id/view) (2:45 minutes)
+Watch the implementation walkthrough
+
+https://github.com/user-attachments/assets/a2088be2-4604-4bbb-b43e-1ac2d375b391
+
+
 - Demonstrates core features and query execution
+
 - Shows query management and results handling
 - Covers performance optimizations
 
