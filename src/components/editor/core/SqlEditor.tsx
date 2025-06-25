@@ -15,6 +15,7 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
   savedQueries,
   onSaveQuery,
   onLoadQuery,
+  onDeleteQuery,
 }) => {
   const [isHistoryOpen, setIsHistoryOpen] = React.useState(false);
   const [isSaveDialogOpen, setIsSaveDialogOpen] = React.useState(false);
@@ -92,6 +93,7 @@ const SqlEditor: React.FC<SqlEditorProps> = ({
         onClose={() => setIsHistoryOpen(false)}
         savedQueries={savedQueries}
         onLoadQuery={onLoadQuery}
+        onDeleteQuery={onDeleteQuery}
       />
     </Paper>
   );

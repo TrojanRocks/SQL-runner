@@ -19,6 +19,7 @@ interface QueryHistoryProps {
   onClose: () => void;
   savedQueries: SavedQuery[];
   onLoadQuery: (query: string) => void;
+  onDeleteQuery: (queryId: string) => void;
 }
 
 const QueryHistory: React.FC<QueryHistoryProps> = ({
@@ -26,6 +27,7 @@ const QueryHistory: React.FC<QueryHistoryProps> = ({
   onClose,
   savedQueries,
   onLoadQuery,
+  onDeleteQuery,
 }) => {
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
@@ -51,9 +53,7 @@ const QueryHistory: React.FC<QueryHistoryProps> = ({
                   </IconButton>
                   <IconButton
                     edge="end"
-                    onClick={() => {
-                      /* TODO: Implement delete */
-                    }}
+                    onClick={() => onDeleteQuery(savedQuery.id)}
                     aria-label={`Delete query: ${savedQuery.name}`}
                   >
                     <DeleteIcon />

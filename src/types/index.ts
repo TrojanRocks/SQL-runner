@@ -14,6 +14,7 @@ export interface SqlEditorProps {
   savedQueries: SavedQuery[];
   onSaveQuery: (query: string, name: string) => void;
   onLoadQuery: (query: string) => void;
+  onDeleteQuery: (queryId: string) => void;
 }
 
 export interface ResultsTableProps {
@@ -45,6 +46,7 @@ export interface QueryHistoryProps {
   onClose: () => void;
   savedQueries: SavedQuery[];
   onLoadQuery: (query: string) => void;
+  onDeleteQuery: (queryId: string) => void;
 }
 
 export interface SavedQuery {

@@ -141,6 +141,10 @@ function App() {
     setQuery(query);
   };
 
+  const handleDeleteQuery = (queryId: string) => {
+    setSavedQueries(prevQueries => prevQueries.filter(q => q.id !== queryId));
+  };
+
   const handleExportResults = useCallback(() => {
     const csvContent = [
       columns.join(','),
@@ -186,6 +190,7 @@ function App() {
             savedQueries={savedQueries}
             onSaveQuery={handleSaveQuery}
             onLoadQuery={handleLoadQuery}
+            onDeleteQuery={handleDeleteQuery}
           />
 
           <ResultsTable
